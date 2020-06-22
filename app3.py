@@ -25,7 +25,7 @@ def sort_posts(db_name, table_name, sort_by):
         c.execute(q1)
         p = c.fetchall()
         conn.close()
-        return render_template('print.html', items=p)
+        return render_template('print1.html', items=p)
 
 
 @app.route('/filter/<path:db_name>&&<string:table_name>&&<string:filter_by>')
@@ -44,7 +44,7 @@ def filter_posts(db_name, table_name, filter_by):
         c.execute(q2)
         p = c.fetchall()
         conn.close()
-        return render_template('print.html', items=p)
+        return render_template('print1.html', items=p)
 
     elif filter_by == '1day':
         q2 = """SELECT title FROM """ + table_name + """ WHERE datePublished >= """ \
@@ -52,7 +52,7 @@ def filter_posts(db_name, table_name, filter_by):
         c.execute(q2)
         p = c.fetchall()
         conn.close()
-        return render_template('print.html', items=p)
+        return render_template('print1.html', items=p)
 
     elif filter_by == '3day' or filter_by == '3days':
         q2 = """SELECT title FROM """ + table_name + """ WHERE datePublished >= """ \
@@ -60,7 +60,7 @@ def filter_posts(db_name, table_name, filter_by):
         c.execute(q2)
         p = c.fetchall()
         conn.close()
-        return render_template('print.html', items=p)
+        return render_template('print1.html', items=p)
 
     elif filter_by == '1week' or filter_by == '7days' or filter_by == '7day':
         q2 = """SELECT title FROM """ + table_name + """ WHERE datePublished >= """ \
@@ -68,7 +68,7 @@ def filter_posts(db_name, table_name, filter_by):
         c.execute(q2)
         p = c.fetchall()
         conn.close()
-        return render_template('print.html', items=p)
+        return render_template('print1.html', items=p)
 
     elif filter_by == '1month':
         q2 = """SELECT title FROM """ + table_name + """ WHERE datePublished >= """ \
@@ -76,7 +76,7 @@ def filter_posts(db_name, table_name, filter_by):
         c.execute(q2)
         p = c.fetchall()
         conn.close()
-        return render_template('print.html', items=p)
+        return render_template('print1.html', items=p)
 
 
 @app.route('/filter/<path:db_name>&&<string:table_name>&&<string:date_one>&&<string:date_two>')
@@ -95,7 +95,7 @@ def filter_posts_by_date(db_name, table_name, date_one, date_two):
         c.execute(q3)
         p = c.fetchall()
         conn.close()
-        return render_template('print.html', items=p)
+        return render_template('print1.html', items=p)
 
 
 app.run(port=6137)

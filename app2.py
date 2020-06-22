@@ -25,7 +25,7 @@ def sort_authors(db_name, table_name, sort_by):
         c.execute(q1)
         d = c.fetchall()
 
-        return render_template('print.html', items=d)
+        return render_template('print1.html', items=d)
 
 
 app.run(port=9531)
