@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
+@app.route('/home')
 def home():
     return 'Welcome to task 3 API <br> Please enter the url as ' \
            '<br> <b>/`db_path`&&`table_name`&&`field_to_sort_by`</b>' \
@@ -21,7 +22,7 @@ def sort_posts(db_name, table_name, sort_by):
     if flag == 0:
         return 'Table ' + table_name + ' does not exist!'
     else:
-        q1 = """SELECT title from """ + table_name + """ ORDER BY """ + sort_by + """ ASC"""
+        q1 = """SELECT title from """ + table_name + """ ORDER BY """ + sort_by + """ DESC"""
         c.execute(q1)
         p = c.fetchall()
         conn.close()
@@ -90,8 +91,8 @@ def filter_posts_by_date(db_name, table_name, date_one, date_two):
         return 'Table ' + table_name + ' does not exist!'
     else:
         q3 = """SELECT title FROM """ + table_name + """ WHERE datePublished BETWEEN """ \
-            """(SELECT (strftime('%s','""" + date_one + """','-1 month')*1000)) AND """ \
-            """(SELECT (strftime('%s','""" + date_two + """','-1 month')*1000))"""
+            """(SELECT (strftime('%s','""" + date_one + """')*1000)) AND """ \
+            """(SELECT (strftime('%s','""" + date_two + """')*1000))"""
         c.execute(q3)
         p = c.fetchall()
         conn.close()

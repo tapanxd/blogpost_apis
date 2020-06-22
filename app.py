@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
+@app.route('/home')
 def home():
     return 'Welcome to task 1 API <br> Please enter the url as' \
            ' <br> <b>/`json_file_path`&&`db_path`&&`table_name`</b>' \

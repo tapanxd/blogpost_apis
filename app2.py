@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
+@app.route('/home')
 def home():
     return 'Welcome to task 2 API <br> Please enter the url as ' \
            '<br> <b>/`db_path`&&`table_name`&&`field_to_sort_by`</b>' \
