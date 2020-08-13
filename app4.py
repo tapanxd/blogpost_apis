@@ -39,11 +39,12 @@ def create_chart(db_name, table_name, post_id, date_one, date_two):
         d = list(c)
         # convert each value in list from tuple to string and strip off the unwanted brackets and commas
         p = []
-        l = []
-        k = []
-        v = []
         r = []
         u = []
+        v = []
+        k = []
+        l = []
+
         for i in d:
             p.append(str(i))
 
