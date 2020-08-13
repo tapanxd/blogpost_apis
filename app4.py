@@ -8,9 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/home')
 def home():
-    return 'Welcome to task 3 API <br> Please enter the url as ' \
-           '<br> <b>/`db_path`&&`table_name`&&`field_to_sort_by`</b>' \
-           '<br> to access the API'
+    return 'Welcome to task 4 API'
 
 
 @app.route('/create_chart/likes/<path:db_name>&&<string:table_name>&&<int:post_id>&&<string:date_one>&&<string'
