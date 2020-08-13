@@ -25,7 +25,7 @@ def create_chart(db_name, table_name, post_id, date_one, date_two):
     else:
         # collect the timestamps of a post's each like
         print(type(date_two))
-        q3 = """SELECT datePublished FROM likes where postId = """ + post_id + """ AND datePublished BETWEEN """ \
+        q3 = """SELECT datePublished FROM likes where postId = """ + str(post_id) + """ AND datePublished BETWEEN """ \
                                                                                """(SELECT (strftime('%s','""" + date_one + """')*1000)) AND """ \
                                                                                """(SELECT (strftime('%s','""" + date_two + """')*1000))"""
 
