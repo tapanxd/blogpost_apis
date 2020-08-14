@@ -28,9 +28,6 @@ def create_chart(db_name, table_name, post_id, date_one, date_two):
                                                                                """(SELECT (strftime('%s','""" + date_one + """')*1000)) AND """ \
                                                                                """(SELECT (strftime('%s','""" + date_two + """')*1000))"""
 
-        # on line 32, there's an internal error, 'TypeError: can only concatenate str (not "int") to str',
-        # although the variable date_two is of type string
-
         c.execute(q3)
         # make a list
         d = list(c)
