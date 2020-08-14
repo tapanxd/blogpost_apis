@@ -24,7 +24,6 @@ def create_chart(db_name, table_name, post_id, date_one, date_two):
 
     else:
         # collect the timestamps of a post's each like
-        print(type(date_two))
         q3 = """SELECT datePublished FROM likes where postId = """ + str(post_id) + """ AND datePublished BETWEEN """ \
                                                                                """(SELECT (strftime('%s','""" + date_one + """')*1000)) AND """ \
                                                                                """(SELECT (strftime('%s','""" + date_two + """')*1000))"""
@@ -56,7 +55,6 @@ def create_chart(db_name, table_name, post_id, date_one, date_two):
             q4 = """SELECT COUNT(*) FROM likes WHERE datePublished <=""" + i + """ AND postID = """ + post_id
             c.execute(q4)
             t.append(list(c))
-        # print(t)
 
         # convert cursor object to int in the list
         for i in t:
