@@ -49,7 +49,7 @@ def create_chart(db_name, table_name, post_id, date_one, date_two):
         # collect the count of likes from each timestamp for a particular post
         t = []
         for i in v:
-            q4 = """SELECT COUNT(*) FROM likes WHERE datePublished <=""" + i + """ AND postID = """ + post_id
+            q4 = """SELECT COUNT(*) FROM likes WHERE datePublished <=""" + i + """ AND postID = """ + str(post_id)
             c.execute(q4)
             t.append(list(c))
 
