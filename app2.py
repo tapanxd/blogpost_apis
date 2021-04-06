@@ -29,4 +29,4 @@ def sort_authors(db_name, table_name, sort_by):
         return render_template('print1.html', items=d)
 
 
-app.run(port=9531)
+app.run(port=8000)
